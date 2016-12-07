@@ -3,12 +3,24 @@
   <head>
     <title>Notes</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <div id="user-widget">
+    <% if current_user %>
+      Welcome <strong><%= current_user.name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      Sign in:
+      <%= link_to "<i class='fa fa-facebook fa-2x' aria-hidden='true'></i>".html_safe, "/auth/facebook", id: "sign_in" %>
+      <%= link_to "<i class='fa fa-twitter fa-2x' aria-hidden='true'></i>".html_safe, "/auth/twitter", id: "sign_in" %>
+      <%= link_to "<i class='fa fa-google fa-2x' aria-hidden='true'></i>".html_safe, "auth/google_oauth2", id: "sign_in" %>
+    <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
