@@ -1,4 +1,13 @@
 // @import "*";
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+#app{
+  height: 100%;
+}
 
 div.note.selected {
   background-color: #FBE08C;
@@ -7,4 +16,45 @@ div.note.selected {
 div.folder.selected {
   color: white;
   background-color: #358DF7;
+}
+
+.hidden-submit {
+  margin: 0px;
+  height: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+
+.search-form {
+  width: 80%;
+  display: inline-block;
+}
+
+#folder-form {
+  width: 90%;
+  display: inline-block;
+}
+
+.folder-tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fabutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 18px;
+}
+
+.note-tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+.callout {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  flex: 1 1 auto;
 }

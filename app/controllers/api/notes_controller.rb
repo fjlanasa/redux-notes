@@ -11,28 +11,34 @@ class Api::NotesController < ApiController
 
   def create
     note = Note.new(note_params)
+    note.assign_attributes(user_id: current_user.id)
     if note.save
       message = "New Note!"
     else
       message = note.errors.full_messages[0]
     end
-    render json: {message: message}, status: :ok
+    notes = Folder.find(note_params[:folder_id]).notes.reverse
+    render json: {chosenNote: note, notes: notes}, status: :ok
   end
 
   def update
     note = Note.find(params[:id])
-    note.update_attributes(note_params)
-    render json: {message: 'Successfully updated your note'}
+    note.update_attributes(body: params[:body])
+    notes = note.folder.notes.reverse
+    render json: {chosenNote: note, notes: notes}, status: :ok
   end
 
   def destroy
     note = Note.find(params[:id])
+    folder = note.folder
     note.destroy
-    render json: {message: 'Your note has been deleted'}
+    notes = folder.notes.reverse || []
+    chosenNote = notes.first || {}
+    render json: {notes: notes, chosenNote: chosenNote}, status: :ok
   end
 
   private
   def note_params
-    params.require(:note).permit(:user_id, :folder_id, :body)
+    params.require(:note).permit(:folder_id, :body)
   end
 end

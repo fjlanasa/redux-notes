@@ -40,3 +40,60 @@ export function fetchData(folderID = null, noteID = null) {
     return null;
   }
 }
+
+export function createNote(folder, note) {
+  return function(dispatch) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/notes',
+      contentType: 'application/json',
+      data: JSON.stringify({note: {folder_id: folder.id, body: note}})
+    }).done((data) => {
+      dispatch(setNotes(data.notes));
+      dispatch(selectNote(data.chosenNote));
+    })
+    return null;
+  }
+}
+
+export function editNote(note, newBody) {
+  return function(dispatch) {
+    $.ajax({
+      type: 'PATCH',
+      url: `/api/notes/${note.id}`,
+      contentType: 'application/json',
+      data: JSON.stringify({body: newBody})
+    }).done((data) => {
+      dispatch(setNotes(data.notes));
+      dispatch(selectNote(data.chosenNote));
+    })
+  }
+}
+
+export function deleteNote(note) {
+  return function(dispatch) {
+    $.ajax({
+      type: 'DELETE',
+      url: `/api/notes/${note.id}`,
+    }).done((data) =>{
+      dispatch(setNotes(data.notes));
+      dispatch(selectNote(data.chosenNote));
+    })
+    return null;
+  }
+}
+
+export function createFolder(name) {
+  return function(dispatch) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/folders',
+      contentType: 'application/json',
+      data: JSON.stringify({folder:{name: name}})
+    }).done((data) => {
+      dispatch(selectFolder(data.chosenFolder));
+      dispatch(setFolders(data.folders));
+    })
+    return null;
+  }
+}
