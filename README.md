@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 # Notes
-Your app description, here.
+Your app description, here!
