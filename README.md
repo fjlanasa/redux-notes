@@ -6,8 +6,8 @@ This is a single-page note-taking application using a PostreSQL database and Rai
 
 ### Download
 ```
-git clone https://github.com/fjlanasa/volunteer-meetup.git
-cd volunteer-meetup
+git clone https://github.com/fjlanasa/notes-app.git
+cd notes-app
 bundle install
 rake db:create
 rake db:migrate
