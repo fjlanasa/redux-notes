@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Note from './Note';
 import autosize from 'autosize'
 
@@ -43,8 +44,17 @@ class NoteSection extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.chosenNote){
-      this.setState({value: nextProps.chosenNote.body || ''});
+    if(nextProps.chosenNote.body){
+      this.setState({
+        value: nextProps.chosenNote.body || '',
+        formDivClass: 'note-form'
+      });
+    } else {
+      ReactDOM.findDOMNode(this.refs.note).focus();
+      this.setState({
+        value: nextProps.chosenNote.body || '',
+        formDivClass: 'note-form focused'
+      });
     }
   }
 
