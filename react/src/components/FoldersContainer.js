@@ -23,7 +23,7 @@ class FoldersContainer extends Component {
 
   render() {
     return (
-      <div className='callout small-12 medium-4 columns'>
+      <div className='callout small-12 medium-4 columns folder-container'>
         <div className='folder-collection'>
           <FoldersCollection {...this.props} />
         </div>

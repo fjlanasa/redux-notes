@@ -13,11 +13,12 @@
     <header id="user-widget">
       <% if current_user %>
       <span>
-        Welcome, <strong><%= current_user.name %></strong>! 
+        Welcome, <strong><%= current_user.name %></strong>!
         <%= link_to "Sign out", signout_path, id: "sign_out" %>
       </span>
       <% end %>
     </header>
     <%= yield %>
+    <footer></footer>
   </body>
 </html>
