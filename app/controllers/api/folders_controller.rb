@@ -1,8 +1,23 @@
 class Api::FoldersController < ApiController
-  # def index
-  #   folder = Folder.all
-  #   render json: {message}
-  # end
+  def index
+    folders = current_user.folders.reverse
+    chosenFolder = folders[0] || {}
+
+    if params[:folderID] != ''
+      chosenFolder = Folder.find(params[:folderID].to_i)
+    end
+
+    notes = chosenFolder.try(:notes) || []
+    chosenNote = notes.last || {}
+
+    if params[:noteID] != ''
+      chosenNote = Note.find(params[:noteID].to_i)
+    end
+
+
+    render json: {folders: folders, notes: notes,
+      chosenFolder: chosenFolder, chosenNote: chosenNote}, status: :ok
+  end
 
   def create
     folder = Folder.new(folder_params)

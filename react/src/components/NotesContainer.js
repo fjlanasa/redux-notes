@@ -1,11 +1,16 @@
 import React from 'react';
+import NotesCollection from './NotesCollection'
 
 const NotesContainer = props => {
+  let notesCollection;
+  if(props.chosenNote){
+    notesCollection = <NotesCollection {...props} />;
+  }
   return(
     <div className='small-12 medium-4 columns'>
-      <h1>
-        Notes!
-      </h1>
+      <div>
+        {notesCollection}
+      </div>
     </div>
   );
 };

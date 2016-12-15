@@ -14,11 +14,6 @@
     <% if current_user %>
       Welcome <strong><%= current_user.name %></strong>!
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-      Sign in:
-      <%= link_to "<i class='fa fa-facebook fa-2x' aria-hidden='true'></i>".html_safe, "/auth/facebook", id: "sign_in" %>
-      <%= link_to "<i class='fa fa-twitter fa-2x' aria-hidden='true'></i>".html_safe, "/auth/twitter", id: "sign_in" %>
-      <%= link_to "<i class='fa fa-google fa-2x' aria-hidden='true'></i>".html_safe, "auth/google_oauth2", id: "sign_in" %>
     <% end %>
   </div>
     <%= yield %>
