@@ -7,7 +7,8 @@ class Api::FoldersController < ApiController
       chosenFolder = Folder.find(params[:folderID].to_i)
     end
 
-    notes = chosenFolder.try(:notes).reverse || []
+    notes = chosenFolder.try(:notes) || []
+    notes = notes.reverse
     chosenNote = notes.first || {}
 
     if params[:noteID] != ''
