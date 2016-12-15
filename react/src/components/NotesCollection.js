@@ -42,7 +42,7 @@ class NotesCollection extends Component {
     return (
       <div className='notes'>
         <div className='note-tools note-header'>
-          <button className='button tiny new-note' onClick={this.handleClick}>New Note</button>
+          <button className='button new-note' onClick={this.handleClick}>New Note</button>
           <form id='search-form' onSubmit={this.handleSubmit}>
             <input id='search-field' type='text'onChange={this.handleChange} placeholder='Search'/>
           </form>

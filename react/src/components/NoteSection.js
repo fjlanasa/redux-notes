@@ -55,7 +55,7 @@ class NoteSection extends Component {
     autosize(document.querySelector('textarea'));
     if(this.props.chosenNote.body){
       updatedOn = <span>Updated on <br/>{this.props.chosenNote.updated_at.substring(0,10)}</span>
-      deleteButton = <button href="#" className="button tiny" onClick={this.handleDelete}>Delete</button>;
+      deleteButton = <button href="#" className="button" onClick={this.handleDelete}>Delete</button>;
     }
     return(
       <div className='small-12 medium-4 columns callout'>
@@ -65,7 +65,7 @@ class NoteSection extends Component {
               {updatedOn}
             </div>
             <div className='note-buttons'>
-              <button className="button tiny" onClick={this.handleSubmit}>{submitButtonValue}</button>
+              <button className="button" onClick={this.handleSubmit}>{submitButtonValue}</button>
               {deleteButton}
             </div>
           </div>
