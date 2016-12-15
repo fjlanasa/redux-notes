@@ -2,11 +2,58 @@
 html,
 body {
   height: 100%;
-  margin: 0
 }
+
+#user-widget {
+  height: 40px;
+  color: white;
+  background-color: #074E68;
+  display: flex;
+  padding-right: 5px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sign-in {
+  margin: 50px auto;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logos {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.logos div {
+  display: inline-block;
+}
+
+#search-form {
+  margin-bottom: 0px;
+}
+
+#search-form  input#search-field[type='text'] {
+  margin-bottom: 0 !important;
+}
+
+.note-collection,
+.notes {
+  height: 100%;
+}
+
 
 #app{
   height: 100%;
+}
+
+.note {
+  padding-left: 5px;
 }
 
 div.note.selected {
@@ -18,6 +65,14 @@ div.folder.selected {
   background-color: #358DF7;
 }
 
+.folder {
+  height: 5%;
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
 .hidden-submit {
   margin: 0px;
   height: 0px;
@@ -26,7 +81,9 @@ div.folder.selected {
 }
 
 .search-form {
-  width: 80%;
+  margin: 5px;
+  min-width: 70%;
+  max-width: 80%;
   display: inline-block;
 }
 
@@ -35,9 +92,24 @@ div.folder.selected {
   display: inline-block;
 }
 
+.note-form {
+  height: 85%;
+}
+
+.focused {
+  -webkit-box-shadow:0 0 4px blue;
+    -moz-box-shadow: 0 0 4px blue;
+    box-shadow:0 0 4px blue;
+}
+
 .folder-tools {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.button {
+  margin-bottom: 3px;
+  min-width: 50px;
 }
 
 .fabutton {
@@ -49,12 +121,65 @@ div.folder.selected {
 
 .note-tools {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f4f4f4;
+  height: 15%;
+  padding-top: 5px;
+}
+
+.note-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  flex-wrap: wrap;
+}
+
+div.note-section-tools .button {
+  margin-left: 5px;
+}
+
+.folder-collection {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.updated-at {
+  padding-left: 5px;
+  width: 65%;
 }
 
 .callout {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
+  padding: 0px;
+  justify-content: space-between;
   height: 100%;
   flex: 1 1 auto;
+  margin: 0px;
+}
+
+textarea {
+     width: 100%;
+     min-height: 300px;
+     border: none;
+     outline: none;
+     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+textarea:focus {
+  border: none;
+  -webkit-box-shadow: none;
+ -moz-box-shadow: none;
+ box-shadow: none;
+}
+
+::-webkit-resizer {
+  display: none;
 }

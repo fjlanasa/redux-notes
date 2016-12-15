@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
+
 $(function() {
   if(document.getElementById('app') !== null){
     ReactDOM.render(

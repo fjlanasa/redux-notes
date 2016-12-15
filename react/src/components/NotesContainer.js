@@ -7,8 +7,8 @@ const NotesContainer = props => {
     notesCollection = <NotesCollection {...props} />;
   }
   return(
-    <div className='small-12 medium-4 columns'>
-      <div>
+    <div className='small-12 medium-4 columns callout'>
+      <div className='note-collection'>
         {notesCollection}
       </div>
     </div>

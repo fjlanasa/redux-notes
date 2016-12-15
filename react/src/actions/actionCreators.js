@@ -93,6 +93,8 @@ export function createFolder(name) {
     }).done((data) => {
       dispatch(selectFolder(data.chosenFolder));
       dispatch(setFolders(data.folders));
+      dispatch(selectNote({}));
+      dispatch(setNotes([]));
     })
     return null;
   }

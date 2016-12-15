@@ -8,9 +8,9 @@ function FoldersCollection(props) {
     )
   })
   return (
-    <div className='folders'>
+    <span>
       {folders}
-    </div>
+    </span>
   )
 }
 

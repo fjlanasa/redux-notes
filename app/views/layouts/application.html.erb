@@ -10,12 +10,14 @@
   </head>
 
   <body>
-    <div id="user-widget">
-    <% if current_user %>
-      Welcome <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% end %>
-  </div>
+    <header id="user-widget">
+      <% if current_user %>
+      <span>
+        Welcome, <strong><%= current_user.name %></strong>! 
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      </span>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

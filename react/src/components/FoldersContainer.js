@@ -4,6 +4,9 @@ import FoldersCollection from './FoldersCollection'
 class FoldersContainer extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      value: ''
+    }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -14,13 +17,14 @@ class FoldersContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createFolder(this.refs.folder.value);
+    this.props.createFolder(this.state.value);
+    this.setState({value: ''})
   }
 
   render() {
     return (
       <div className='callout small-12 medium-4 columns'>
-        <div>
+        <div className='folder-collection'>
           <FoldersCollection {...this.props} />
         </div>
         <div className='folder-tools'>
@@ -28,7 +32,7 @@ class FoldersContainer extends Component {
             <i className="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
           </div>
           <form id='folder-form' onSubmit={this.handleSubmit}>
-            <input type='text' onChange={this.handleChange} ref='folder' placeholder='New Folder'/>
+            <input type='text' onChange={this.handleChange} value={this.state.value} placeholder='New Folder'/>
           </form>
         </div>
       </div>

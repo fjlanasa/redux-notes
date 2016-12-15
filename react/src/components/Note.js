@@ -12,12 +12,19 @@ class Note extends Component {
 
   render() {
     let noteClass = 'note';
+    let noteBody = this.props.note.body
     if(this.props.chosenNote.id == this.props.note.id) {
       noteClass = 'note selected';
     }
+    if(noteBody.length > 40){
+      noteBody = `${noteBody.substring(0,37)}...`
+    }
     return (
       <div className={noteClass} onClick={this.handleClick}>
-        <div className='name'><div>{this.props.note.body}</div></div>
+        <div className='name'>
+          <div><strong>{noteBody}</strong></div>
+          <div>{this.props.note.updated_at.substring(0,10)}</div>
+        </div>
       </div>
     );
   };

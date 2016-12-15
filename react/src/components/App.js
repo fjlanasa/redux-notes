@@ -13,7 +13,7 @@ class App extends Component {
   }
   render(){
     return (
-      <div className='small-12 columns'>
+      <div className='small-12 columns callout'>
         <FoldersContainer {...this.props} />
         <NotesContainer {...this.props} />
         <NoteSection {...this.props} />

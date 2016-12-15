@@ -41,10 +41,10 @@ class NotesCollection extends Component {
     let collection = this.populateCollection();
     return (
       <div className='notes'>
-        <div className='note-tools'>
+        <div className='note-tools note-header'>
           <button className='button tiny new-note' onClick={this.handleClick}>New Note</button>
-          <form className='search-form' onSubmit={this.handleSubmit}>
-            <input type='text'onChange={this.handleChange} placeholder='Search'/>
+          <form id='search-form' onSubmit={this.handleSubmit}>
+            <input id='search-field' type='text'onChange={this.handleChange} placeholder='Search'/>
           </form>
         </div>
         {collection}
