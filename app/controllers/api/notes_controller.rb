@@ -1,7 +1,5 @@
 class Api::NotesController < ApiController
-
   def index
-    binding.pry
     notes = Folder.find(params[:id]).notes
   end
 
