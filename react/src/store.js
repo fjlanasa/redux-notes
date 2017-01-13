@@ -5,17 +5,8 @@ import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 import { fetchData } from './actions/actionCreators'
 
-const initialState = {
-  folders: [],
-  chosenFolderNotes: [],
-  chosenFolder: {},
-  chosenNote: {}
-};
-
-const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+const store = createStore(rootReducer, undefined, applyMiddleware(thunk));
 
 export const history = syncHistoryWithStore(browserHistory, store);
-
-// store.dispatch(fetchInitialState());
 
 export default store;
