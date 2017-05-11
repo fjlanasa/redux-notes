@@ -22,7 +22,6 @@ class Api::FoldersController < ApiController
 
   def create
     folder = Folder.new(folder_params)
-    binding.pry
     folder.assign_attributes(user_id: current_user.id)
     if folder.save
       message = "New Folder!"
